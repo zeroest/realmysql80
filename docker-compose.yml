@@ -1,0 +1,20 @@
+
+version: "3.7"
+services:
+  mysql8:
+    image: mysql:8.0
+    restart: always
+    # command: --lower_case_table_names=1
+    container_name: mysql8
+    ports:
+      - "40001:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - TZ=Asia/Seoul
+
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - /home/kyd/workspace/mysql/realmysql/volume:/var/lib/mysql
+
